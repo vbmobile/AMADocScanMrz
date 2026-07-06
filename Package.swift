@@ -2,32 +2,32 @@
 import PackageDescription
 //
 let package = Package(
-    name: "AMADocScanMrziOS",
+    name: "AMADocScanMrz",
     platforms: [
         .iOS(.v15)
     ],
     products: [
         .library(
-            name: "AMADocScanMrziOS",
-            targets: ["AMADocScanMrziOSWrapper"]
+            name: "AMADocScanMrz",
+            targets: ["AMADocScanMrzWrapper"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/vbmobile/AMADocModeliOS", .upToNextMinor(from: "2.0.0")),
-        .package(url: "https://github.com/vbmobile/AMADocScanneriOS", .exact("4.1.13"))
+        .package(url: "https://github.com/vbmobile/AMADocModel", .upToNextMinor(from: "3.0.1")),
+        .package(url: "https://github.com/vbmobile/AMADocScanner", .upToNextMinor(from: "4.1.14"))
     ],
     targets: [
         .binaryTarget(
-            name: "AMADocScanMrziOS",
-            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMADocScanMrziOS/AMADocScanMrziOS-2.0.2.zip",
-            checksum: "faec0d9f3ccf2e247dcb736a318a2bd1f5fc4a190c319f8ff28a56db9c46c8c9"
+            name: "AMADocScanMrz",
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMADocScanMrz/AMADocScanMrz-3.0.1.zip",
+            checksum: "6869ac0a36834187dec7ef870c96017286e5cd1fbe51521a1ff8e482f8376b78"
         ),
         .target(
-            name: "AMADocScanMrziOSWrapper",
+            name: "AMADocScanMrzWrapper",
             dependencies: [
-                .target(name: "AMADocScanMrziOS"),
-                .product(name: "AMADocModeliOS", package: "AMADocModeliOS"),
-                .product(name: "AMADocScanneriOS", package: "AMADocScanneriOS"),
+                .target(name: "AMADocScanMrz"),
+                .product(name: "AMADocModel", package: "AMADocModel"),
+                .product(name: "AMADocScanneriOS", package: "AMADocScanner"),
             ],
             path: "Sources",
             sources: ["AMADocScanMrziOS.swift"]

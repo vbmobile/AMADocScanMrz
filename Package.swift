@@ -14,22 +14,20 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/vbmobile/AMADocModel", .upToNextMinor(from: "3.1.0")),
-        .package(url: "https://github.com/vbmobile/AMADocScanner", .upToNextMinor(from: "5.0.2")),
-        .package(url: "https://github.com/vbmobile/AMANetworkClient", .upToNextMinor(from: "6.0.1"))
+        .package(url: "https://github.com/vbmobile/AMADocScanner", .upToNextMinor(from: "5.0.2"))
     ],
     targets: [
         .binaryTarget(
             name: "AMADocScanMrz",
-            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMADocScanMrz/AMADocScanMrz-3.1.0.zip",
-            checksum: "2cdf0d9c3ab4c782f4db568044d572fa8cba7ec22b9c87b56fd52b9a9f66d043"
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMADocScanMrz/AMADocScanMrz-3.2.0.zip",
+            checksum: "1275665a5c9672da94adba7367f196126b5d84f43bc40b068b2d654dbff6d3e0"
         ),
         .target(
             name: "AMADocScanMrzWrapper",
             dependencies: [
                 .target(name: "AMADocScanMrz"),
                 .product(name: "AMADocModel", package: "AMADocModel"),
-                .product(name: "AMADocScanner", package: "AMADocScanner"),
-                .product(name: "AMANetworkClient", package: "AMANetworkClient"),
+                .product(name: "AMADocScanner", package: "AMADocScanner")
             ],
             path: "Sources",
             sources: ["AMADocScanMrziOS.swift"]

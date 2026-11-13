@@ -13,7 +13,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/vbmobile/AMADocModel", .upToNextMinor(from: "4.2.0")),
+        .package(url: "https://github.com/vbmobile/AMADocModel", .upToNextMinor(from: "4.3.0")),
         .package(url: "https://github.com/vbmobile/AMADocScanner", .upToNextMinor(from: "5.0.2"))
     ],
     targets: [
